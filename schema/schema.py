@@ -8,12 +8,18 @@ from . import schema_employee
 
 class Query(graphene.ObjectType):
     node = relay.Node.Field()
-    employee = relay.Node.Field(schema_employee.Employee)
+    employee = graphene.Field(lambda: schema_employee.Employee,
+                              name=graphene.String())
     employee_list = SQLAlchemyConnectionField(schema_employee.Employee)
     department = relay.Node.Field(schema_department.Department)
     department_list = SQLAlchemyConnectionField(schema_department.Department)
     role = relay.Node.Field(schema_role.Role)
     role_list = SQLAlchemyConnectionField(schema_role.Role)
+
+    def resolve_employee(self, info, name):
+        query = schema_employee.Employee.get_query(info)
+        result = query.filter(schema_employee.Model.name == name).first()
+        return result
 
 
 schema = graphene.Schema(query=Query)

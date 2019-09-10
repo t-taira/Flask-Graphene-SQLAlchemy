@@ -15,3 +15,6 @@ class Employee(SQLAlchemyObjectType, EmployeeAttribute):
     class Meta:
         model = ModelEmployee
         interfaces = (relay.Node,)
+
+
+Model = ModelEmployee
