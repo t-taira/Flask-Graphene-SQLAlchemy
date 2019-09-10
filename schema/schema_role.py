@@ -12,3 +12,6 @@ class Role(SQLAlchemyObjectType, RoleAttribute):
     class Meta:
         model = ModelRole
         interfaces = (relay.Node,)
+
+
+Model = ModelRole

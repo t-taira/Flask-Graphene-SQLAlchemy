@@ -12,3 +12,6 @@ class Department(SQLAlchemyObjectType, DepertmentAttribute):
     class Meta:
         model = ModelDepartment
         interfaces = (relay.Node,)
+
+
+Model = ModelDepartment
