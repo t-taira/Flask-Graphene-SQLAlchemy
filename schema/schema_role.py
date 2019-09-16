@@ -1,7 +1,7 @@
 from database.model_role import ModelRole
 import graphene
 from graphene import relay
-from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType
+from graphene_sqlalchemy import SQLAlchemyObjectType
 
 
 class RoleAttribute:

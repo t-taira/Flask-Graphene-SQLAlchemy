@@ -1,7 +1,8 @@
 from database.model_employee import ModelEmployee
 import graphene
 from graphene import relay
-from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType
+from graphene_sqlalchemy import SQLAlchemyObjectType
+
 
 class EmployeeAttribute:
     name = graphene.String(description='Name of Role')
